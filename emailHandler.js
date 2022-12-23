@@ -30,7 +30,6 @@ module.exports.sendEmail = async (event) => {
         let info = await transport.sendMail(mailOptions);
 
         return {
-
             statusCode: 200,
             body: JSON.stringify(
                 {
@@ -39,14 +38,10 @@ module.exports.sendEmail = async (event) => {
                         messageId: info.messageId,
                         previewURL: nodemailer.getTestMessageUrl(info)
                     },
-                },
-                null,
-                2
-            ),
+                }, null, 2),
             headers: {
                 "Access-Control-Allow-Headers": "Content-Type",
                 "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Credentials": true,
                 "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
             }
         };
