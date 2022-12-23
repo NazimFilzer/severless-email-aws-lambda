@@ -11,14 +11,6 @@ const transport = nodemailer.createTransport({
         pass: MAIL_PASS,
     },
 });
-// let transport = nodemailer.createTransport({
-//     host: "smtp.mailtrap.io",
-//     port: 2525,
-//     auth: {
-//         user: "2f62f2ef8f3f65",
-//         pass: "792ee8cf642f03"
-//     }
-// });
 
 
 module.exports.sendEmail = async (event) => {
@@ -50,10 +42,13 @@ module.exports.sendEmail = async (event) => {
                 },
                 null,
                 2
-            ),
+            ), headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Credentials": true,
+            },
         };
 
-    } 
+    }
 
     // Use this code if you don't use the http event with the LAMBDA-PROXY integration
     // return { message: 'Go Serverless v1.0! Your function executed successfully!', event };

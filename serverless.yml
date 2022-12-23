@@ -66,9 +66,6 @@ provider:
 #    - include-me-dir/**
 
 functions:
-  hello:
-    handler: handler.hello
-
   sendEmail:
     handler: emailHandler.sendEmail
     events:
