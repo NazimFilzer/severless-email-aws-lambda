@@ -24,7 +24,7 @@ module.exports.sendEmail = async (event) => {
             from: "nazimfilzer@gmail.com",
             to: toEmail,
             subject: subject,
-            text: content,
+            html: content,
         };
 
         let info = await transport.sendMail(mailOptions);
